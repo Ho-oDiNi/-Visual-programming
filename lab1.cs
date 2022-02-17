@@ -11,7 +11,7 @@ namespace ConsoleApp1
                 int[] B = new int[n];
                 int k = n;
                 long time = 0;
-                int flag = customers.Length - 1;
+                int flag = customers.Length;
                 bool check_end = true;
                 for (int i = 0; i < n; i++)
                 {
@@ -30,14 +30,14 @@ namespace ConsoleApp1
 
                         if (customers[B[i]] == 0)
                         {
-                            if (k != flag + 1)
+                            if (k != flag)
                             {
                                 B[i] = k;
                                 k++;
                             }
                         }
                         check_end = false;
-                        for (int j = 0; j < flag+1; j++)
+                        for (int j = 0; j < flag; j++)
                         {
                             if (customers[j] != 0)
                                 check_end = true;
@@ -67,6 +67,15 @@ namespace ConsoleApp1
             B[3] = 3;
 
             time = HW1.QueueTime(B, 2);
+            Console.WriteLine(time);
+            
+            int[] C = new int[3];
+            C[0] = 2;
+            C[1] = 3;
+            C[2] = 10;
+
+            
+            time = HW1.QueueTime(C, 2);
             Console.WriteLine(time);
 
         }
